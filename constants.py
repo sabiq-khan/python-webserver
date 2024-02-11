@@ -10,7 +10,7 @@ handler.setFormatter(formatter)
 LOGGER.addHandler(handler)
 
 DEFAULT_HOST = "localhost"
-DEFAULT_PORT = "8080"
+DEFAULT_PORT = 8080
 
 FAVICON_PATH = "favicon.ico"
 HOMEPAGE_PATH = "home.html"

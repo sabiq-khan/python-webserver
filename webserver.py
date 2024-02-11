@@ -80,7 +80,7 @@ def help():
 
 
 def read_args(args):
-    server_args = ["localhost", 8080]
+    server_args = [DEFAULT_HOST, DEFAULT_PORT]
 
     # Checks that correct number of arguments were passed
     if len(args) == 0:

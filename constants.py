@@ -9,8 +9,11 @@ formatter = logging.Formatter("[%(asctime)s][%(name)s][%(levelname)s]: %(message
 handler.setFormatter(formatter)
 LOGGER.addHandler(handler)
 
-FAVICON = "favicon.ico"
-HOME_PAGE = "home.html"
+DEFAULT_HOST = "localhost"
+DEFAULT_PORT = "8080"
+
+FAVICON_PATH = "favicon.ico"
+HOMEPAGE_PATH = "home.html"
 
 HELP_MESSAGE = \
 """

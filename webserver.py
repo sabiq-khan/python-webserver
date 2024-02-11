@@ -2,7 +2,14 @@
 import sys
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from socket import gaierror
-from constants import LOGGER, HELP_MESSAGE, HOME_PAGE, FAVICON
+from constants import (
+    LOGGER, 
+    HELP_MESSAGE, 
+    DEFAULT_HOST, 
+    DEFAULT_PORT, 
+    HOMEPAGE_PATH, 
+    FAVICON_PATH
+)
 
 
 class WebServer(BaseHTTPRequestHandler):
@@ -49,10 +56,10 @@ class WebServer(BaseHTTPRequestHandler):
             LOGGER.error(f"File not found: {filepath}")
 
     def serve_favicon(self):
-        self._serve_content(filepath=FAVICON, content_type="image/x-icon")
+        self._serve_content(filepath=FAVICON_PATH, content_type="image/x-icon")
 
     def serve_homepage(self):
-        self._serve_content(filepath=HOME_PAGE)
+        self._serve_content(filepath=HOMEPAGE_PATH)
 
     def do_GET(self):
         routes = {
@@ -116,7 +123,7 @@ def read_args(args):
     return server_args
 
 
-def run_server(hostname="localhost", port=8080):
+def run_server(hostname, port):
     try:
         web_server = HTTPServer((hostname, port), WebServer)
     except gaierror:

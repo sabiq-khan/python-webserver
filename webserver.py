@@ -75,15 +75,17 @@ def help():
 def read_args(args):
     server_args = ["localhost", 8080]
 
+    # If `--help` passed, prints help message and exits
+    if ("--help" in args) or ("-h" in args):
+        print(help())
+        sys.exit(0)
+
     # Checks that correct number of arguments were passed
-    if len(sys.argv) == 1:
+    if len(args) == 1:
         return server_args
-    elif (len(sys.argv) == 2) and \
-        (sys.argv[1] != "--help" or sys.argv[1] != "-h"):
-        err_msg = f"Invalid argument: '{sys.argv[1]}' is not a valid argument."
-        raise ValueError(f"{err_msg}\n{help()}")
-    elif (len(sys.argv) % 2 == 0) or (len(sys.argv) > 5):
-        err_msg = f"Invalid number of arguments: Recieved {len(sys.argv)}."
+    elif (len(args) % 2 == 0) or (len(args) > 5):
+        print(args[1])
+        err_msg = f"Invalid number of arguments: Recieved {len(args)}."
         raise ValueError(f"{err_msg}\n{help()}")
 
     # Checks that correct values were passed for arguments
@@ -103,9 +105,6 @@ def read_args(args):
                     " Must be in range 0-65535."
                 raise ValueError(f"{err_msg}\n{help()}")
             server_args[1] = arg
-        elif (option == "--help") or (option == "-h"):
-            print(help())
-            sys.exit(0)
         else:
             err_msg = f"Invalid argument: '{arg}' is not a valid argument."
             raise ValueError(f"{err_msg}\n{help()}")

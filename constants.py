@@ -12,8 +12,8 @@ LOGGER.addHandler(handler)
 DEFAULT_HOST = "localhost"
 DEFAULT_PORT = 8080
 
-FAVICON_PATH = "favicon.ico"
-HOMEPAGE_PATH = "home.html"
+FAVICON_PATH = "./resources/favicon.ico"
+HOMEPAGE_PATH = "./resources/home.html"
 
 HELP_MESSAGE = \
 """

@@ -1,5 +1,5 @@
-import logging
 import sys
+import logging
 
 LOGGER = logging.getLogger("webserver.py")
 LOGGER.setLevel(logging.INFO)

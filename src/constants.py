@@ -1,3 +1,4 @@
+import os
 import sys
 import logging
 
@@ -12,8 +13,9 @@ LOGGER.addHandler(handler)
 DEFAULT_HOST = "localhost"
 DEFAULT_PORT = 8080
 
-FAVICON_PATH = "./resources/favicon.ico"
-HOMEPAGE_PATH = "./resources/home.html"
+current_dir = os.path.dirname(__file__)
+FAVICON_PATH = f"{current_dir}/resources/favicon.ico"
+HOMEPAGE_PATH = f"{current_dir}/resources/home.html"
 
 HELP_MESSAGE = \
 """
